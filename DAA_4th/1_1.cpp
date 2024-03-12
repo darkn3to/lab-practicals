@@ -10,22 +10,20 @@ void search(vector<int>& v, int key) {
         ++comp;
     }
     if (f==1) cout << "Present " << comp << endl;
-    else cout << "Not Present " << endl;
+    else cout << "Not Present " << comp << endl;
 }
 int main() {
-    int t, x, key;
+    int t, key, n;
     cout << "Enter the number of test cases: ";
     cin >> t;
     while (t-->0) {
-        vector<int> v;
-        cout << "Enter the elements of the array: ";
-        cin >> x;
-        while (x!=-1) {
-            v.push_back(x);
-            cin >> x;
-        }
-        cout << "Enter the key: ";
+        cout << "Enter the number of elements: ";
+        cin >> n;
+        vector<int> arr(n);
+        cout << "Enter the elements: ";
+        for (int i=0; i<n; i++) cin >> arr[i];
+        cout << "Enter the target: ";
         cin >> key;
-        search(v, key);
+        search(arr, key);
     }
 }
