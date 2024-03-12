@@ -1,17 +1,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void searchKeyInVector() {
-    vector<int> v;
-    int x, key, comp=0, f=0;
-    cout << "Enter the elements of the array: ";
-    cin >> x;
-    while (x!=-1) {
-        v.push_back(x);
-        cin >> x;
-    }
-    cout << "Enter the key: ";
-    cin >> key;
+void search(vector<int>& v, int key) {
+    int comp=0, f=0;
     for (auto it:v) {
         if (it==key) {
             f=1; break;
@@ -22,8 +13,19 @@ void searchKeyInVector() {
     else cout << "Not Present " << endl;
 }
 int main() {
-    int t;
+    int t, x, key;
     cout << "Enter the number of test cases: ";
     cin >> t;
-    while (t-->0) searchKeyInVector();
+    while (t-->0) {
+        vector<int> v;
+        cout << "Enter the elements of the array: ";
+        cin >> x;
+        while (x!=-1) {
+            v.push_back(x);
+            cin >> x;
+        }
+        cout << "Enter the key: ";
+        cin >> key;
+        search(v, key);
+    }
 }
