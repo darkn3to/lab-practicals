@@ -1,8 +1,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
-
 using namespace std;
-
 int frequencySearch(vector<int> nums, int target)
 {
     int n = nums.size();
@@ -38,7 +36,6 @@ int frequencySearch(vector<int> nums, int target)
     }
     return r1 - l1 + 1;
 }
-
 int main()
 {
     int t;
