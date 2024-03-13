@@ -11,14 +11,16 @@ int main()
     cin >> t;
     while (t-- > 0)
     {
-        int n, target;
+        int n;
         cout << "Enter the number of elements: ";
         cin >> n;
         vector<int> nums(n);
         cout << "Enter the elements: ";
         for (int i = 0; i < n; i++)
             cin >> nums[i];
-        for(int j=0;j<n;j++)
+        for (int i = n - 1; i > 1; i++)
+        {
+        }
     }
     return 0;
 }
