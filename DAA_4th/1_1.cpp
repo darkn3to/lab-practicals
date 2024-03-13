@@ -9,7 +9,7 @@ void search(vector<int>& v, int key) {
         }
         ++comp;
     }
-    if (f==1) cout << "Present " << comp << endl;
+    if (f==1) cout << "Present " << comp+1 << endl;
     else cout << "Not Present " << comp << endl;
 }
 int main() {
