@@ -2,7 +2,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// create functions here
+bool searchTriplet(vector<int> &nums)
+{
+    int n = nums.size();
+    for (int k = n - 1; k > 1; k--)
+    {
+        int i = 0, j = k - 1;
+        while (i < j)
+        {
+            int sum = nums[i] + nums[j];
+            if (sum == nums[k])
+            {
+                cout << i + 1 << ", " << j + 1 << ", " << k + 1 << endl;
+                return true;
+            }
+            else if (sum < nums[k])
+                i++;
+            else
+                j--;
+        }
+    }
+    return false;
+}
 
 int main()
 {
@@ -18,9 +39,9 @@ int main()
         cout << "Enter the elements: ";
         for (int i = 0; i < n; i++)
             cin >> nums[i];
-        for (int i = n - 1; i > 1; i++)
-        {
-        }
+        if (!searchTriplet(nums))
+            cout << "No sequence found." << endl;
+        cout << endl;
     }
     return 0;
 }

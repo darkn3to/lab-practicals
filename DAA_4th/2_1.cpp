@@ -37,7 +37,7 @@ int main() {
         for (int i=0; i < n; i++) cin >> nums[i];
         cout << "Enter the target: ";
         cin >> target;
-        cout << "Frequency of target: " << frequencySearch(nums, target) << endl;
+        cout << target << " - " << frequencySearch(nums, target) << endl;
         cout << endl;
     }
     return 0;
