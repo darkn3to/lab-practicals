@@ -2,17 +2,13 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-
 bool contains_duplicates(vector<int>& v) {
     sort(v.begin(), v.end());
     for(int i=0; i<v.size()-1; i++) {
-        if(v[i]==v[i+1]) {
-            return true;
-        }
+        if(v[i]==v[i+1]) return true;
     }
     return false;
 }
-
 int main() {
     int t,n;
     cout << "Enter the number of test cases: ";
