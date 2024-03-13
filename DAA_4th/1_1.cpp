@@ -1,28 +1,29 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+void search(vector<int>& v, int key) {
+    int comp=0, f=0;
+    for (auto it:v) {
+        if (it==key) {
+            f=1; break;
+        }
+        ++comp;
+    }
+    if (f==1) cout << "Present " << comp << endl;
+    else cout << "Not Present " << comp << endl;
+}
 int main() {
-    vector<int> v;
-    int x, key, t, comp=0, f=0;
+    int t, key, n;
     cout << "Enter the number of test cases: ";
     cin >> t;
     while (t-->0) {
-        cout << "Enter the elements of the array: ";
-        cin >> x;
-        while (x!=-1) {
-            v.push_back(x);
-            cin >> x;
-        }
-        cout << "Enter the key: ";
+        cout << "Enter the number of elements: ";
+        cin >> n;
+        vector<int> arr(n);
+        cout << "Enter the elements: ";
+        for (int i=0; i<n; i++) cin >> arr[i];
+        cout << "Enter the target: ";
         cin >> key;
-        for (auto it:v) {
-            if (it==key) {
-                f=1;
-                break;
-            }
-            ++comp;
-        }
-        if (f==1) cout << "Present " << comp << endl;
-        else cout << "Not Present " << endl;
+        search(arr, key);
     }
 }
