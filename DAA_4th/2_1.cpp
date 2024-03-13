@@ -14,7 +14,7 @@ int frequencySearch(vector<int> nums, int target) {
     }
     if (l1==-1) return 0;
     l=l1, r=n-1;
-    while (l<=>r) {
+    while (l<=r) {
         int mid=(l+r)/2;
         if (nums[mid]==target && (mid==n-1 || nums[mid+1]!=target)) {
             r1=mid; break;
