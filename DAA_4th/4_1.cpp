@@ -2,17 +2,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool checkInversion()
+bool checkInversion(vector<int> &nums, int l, int r)
 {
-
+    int s = 0, i = 0;
+    for (int i = ; i < n; i++)
 }
 
 void mergeSort(vector<int> &nums, int l, int r, int &noc, int &noi)
 {
     if (l < r)
     {
-        int mid = (l + r) / 2;
-        if (checkInversion(nums, l, mid)!=0)
+        int c = checkInversion() int mid = (l + r) / 2;
+        if (!= 0)
             mergeSort(nums, l, mid, noc, noi);
         if (checkInversion(nums, mid + 1, r))
             mergeSort(nums, mid + 1, r, noc, noi);

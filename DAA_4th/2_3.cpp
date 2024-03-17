@@ -29,6 +29,7 @@ int main() {
         vector<int> nums(n);
         cout << "Enter the elements: ";
         for (int i = 0; i < n; i++) cin >> nums[i];
+        cout << "Enter the key: ";
         cin >> target;
         cout << countPair(nums, target) << endl;
         cout << endl;
