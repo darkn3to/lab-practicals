@@ -1,5 +1,5 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 bool searchTriplet(vector<int> &nums) {
     int n = nums.size();

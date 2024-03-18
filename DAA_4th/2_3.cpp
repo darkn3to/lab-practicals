@@ -1,5 +1,6 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
 using namespace std;
 int countPair(vector<int> &nums, int target) {
     sort(nums.begin(), nums.end());
@@ -21,8 +22,7 @@ int main() {
     int t;
     cout << "Enter the number of test cases: ";
     cin >> t;
-    while (t-- > 0)
-    {
+    while (t-- > 0) {
         int n, target;
         cout << "Enter the number of elements: ";
         cin >> n;
