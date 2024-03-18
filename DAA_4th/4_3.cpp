@@ -1,5 +1,5 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 bool kthSmallest(vector<int> &nums, int k) {
     int l = nums[0], r = nums[0];
