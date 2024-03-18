@@ -2,22 +2,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool checkInversion(vector<int> &nums, int l, int r)
+void merges(vector<int> &nums, int l, int mid, int r, int &noc, int &noi)
 {
-    int s = 0, i = 0;
-    for (int i = ; i < n; i++)
+    int ls = mid - l + 1, rs = r - mid;
+    vector<int> larr(ls), rarr(rs);
+    for (int i = 0; i < ls; i++)
+        larr[i] = nums[l + i];
+    for (int i = 0; i < rs; i++)
+        rarr[i] = nums[mid + i + 1];
+    int i = 0, j = 0, k = l;
+    while (i < ls && j < rs)
+    {
+        if (larr[i] <= rarr[j])
+            nums[k++] = larr[i++];
+        else
+        {
+            nums[k++] = rarr[j++];
+            noi += mid - i + 1;
+        }
+        noc++;
+    }
+    while (i < ls)
+        nums[k++] = larr[i++];
+    while (j < rs)
+        nums[k++] = rarr[j++];
 }
 
 void mergeSort(vector<int> &nums, int l, int r, int &noc, int &noi)
 {
     if (l < r)
     {
-        int c = checkInversion() int mid = (l + r) / 2;
-        if (!= 0)
-            mergeSort(nums, l, mid, noc, noi);
-        if (checkInversion(nums, mid + 1, r))
-            mergeSort(nums, mid + 1, r, noc, noi);
-        merges(nums, l, mid, r, noc);
+        int mid = (l + r) / 2;
+        mergeSort(nums, l, mid, noc, noi);
+        mergeSort(nums, mid + 1, r, noc, noi);
+        merges(nums, l, mid, r, noc, noi);
     }
 }
 
@@ -37,7 +55,7 @@ int main()
             cin >> nums[i];
         mergeSort(nums, 0, n - 1, noc, noi);
         for (int i = 0; i < n; i++)
-            cout << nums[i];
+            cout << nums[i] << " ";
         cout << endl;
         cout << "comparisons = " << noc << endl;
         cout << "inversions = " << noi << endl;
