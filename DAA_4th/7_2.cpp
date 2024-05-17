@@ -1,27 +1,24 @@
 //
 // Created by Manas Singh on 16-05-2024.
 //
+
 #include <iostream>
 #include <vector>
-#include <queue>
 
 using namespace std;
 
-void dijkstra(int n, vector<vector<int>> &matrix, vector<int> &distance, vector<int> &parent, int source) {
-    vector<bool> visited(n, false);
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
+void bellmanFord(int n, vector<vector<int>> &matrix, vector<int> &distance, vector<int> &parent, int source) {
     distance[source] = 0;
-    pq.emplace(0, source);
-    while (!pq.empty()) {
-        int curr = pq.top().second;
-        visited[curr] = true;
-        pq.pop();
-        for (int i = 0; i < n; i++)
-            if (matrix[curr][i]>0 && !visited[i] && distance[curr] + matrix[curr][i] < distance[i]) {
-                distance[i] = matrix[curr][i] + distance[curr];
-                parent[i] = curr;
-                pq.emplace(distance[i], i);
-            }
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n; j++) {
+            if (distance[j] != INT_MAX)
+                for (int k = 0; k < n; k++) {
+                    if (matrix[j][k] > 0 && distance[j] + matrix[j][k] < distance[k]) {
+                        distance[k] = distance[j] + matrix[j][k];
+                        parent[k] = j;
+                    }
+                }
+        }
     }
 }
 
@@ -42,11 +39,11 @@ int main() {
         cin >> source;
         vector<int> distance(n, INT_MAX);
         vector<int> parent(n, -1);
-        dijkstra(n, matrix, distance, parent, source);
+        bellmanFord(n, matrix, distance, parent, source - 1);
         for (int i = 0; i < n; i++) {
             int j = i;
             while (j != -1) {
-                cout << j << " ";
+                cout << j + 1 << " ";
                 j = parent[j];
             }
             cout << ": " << distance[i] << endl;
